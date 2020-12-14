@@ -15,8 +15,8 @@ Quick Start
 
 ```scala
 import org.apache.spark.sql.SparkSession
-import com.criteo.hadoop.deepdiff.{FastDeepDiff, DeepDiff}
-import com.criteo.hadoop.deepdiff.config.DeepDiffConfig
+import com.criteo.deepdiff.{FastDeepDiff, DeepDiff}
+import com.criteo.deepdiff.config.DeepDiffConfig
 import com.typesafe.config.ConfigFactory
 
 implicit val spark: SparkSession = SparkSession.builder().getOrCreate()
