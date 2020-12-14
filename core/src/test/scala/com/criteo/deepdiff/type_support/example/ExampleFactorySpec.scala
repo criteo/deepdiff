@@ -23,7 +23,7 @@ import org.apache.spark.sql.types._
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
-object ExampleFactorySpec{
+object ExampleFactorySpec {
   final case class TestCase[+T, +E](dataType: DataType, value: T, example: E)
   object TestCase {
     def apply[T](dataType: DataType, value: T): TestCase[T, T] = TestCase(dataType, value, value)
@@ -33,7 +33,6 @@ object ExampleFactorySpec{
 final class ExampleFactorySpec extends AnyFlatSpec with Matchers {
   import ExampleFactorySpec._
   import SparkUtils._
-
 
   val structTestCase = TestCase(StructType(Seq(StructField("a", IntegerType), StructField("b", StringType))),
                                 (1, "str"),

@@ -16,15 +16,15 @@
 
 package com.criteo.deepdiff.type_support.comparator
 
-import java.nio.ByteBuffer
-import java.util
-
 import com.criteo.deepdiff.diff.{K, R}
 import com.criteo.deepdiff.raw_part.{CommonRawDiffsPartBuilder, KindOfDiff}
 import com.criteo.deepdiff.type_support.unsafe.{BinaryEquivalence, UnsafeComparator}
 import org.apache.spark.sql.catalyst.expressions.SpecializedGetters
 import org.apache.spark.sql.types._
 import org.apache.spark.unsafe.types.UTF8String
+
+import java.nio.ByteBuffer
+import java.util
 
 /** Helper class to handle data for a specific [[DataType]]
   */

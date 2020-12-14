@@ -16,13 +16,13 @@
 
 package com.criteo.deepdiff.test_cases
 
-import java.util.TimeZone
-
 import com.criteo.deepdiff.KeyExample
 import com.criteo.deepdiff.test_utils.DeepDiffSpec.DeepDiffTestCase
 import com.criteo.deepdiff.test_utils.{DatasetDiffsBuilder, DeepDiffSpec}
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.types.TimestampType
+
+import java.util.TimeZone
 
 object TimeTypeSpec {
   final case class Record(key: String, date: String)

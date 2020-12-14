@@ -16,9 +16,6 @@
 
 package com.criteo.deepdiff.test_utils
 
-import java.nio.ByteBuffer
-import java.util
-
 import com.criteo.deepdiff._
 import com.criteo.deepdiff.raw_part.{
   DatasetRawDiffsPart,
@@ -31,6 +28,8 @@ import org.apache.spark.sql.types.{ArrayType, StructType}
 import org.scalatest.AppendedClues
 import org.scalatest.matchers.should.Matchers
 
+import java.nio.ByteBuffer
+import java.util
 import scala.util.Try
 
 /** Debug friendly DataSetRawDiffsPart checker. It checks result in a specific order to provide the

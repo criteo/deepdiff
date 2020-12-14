@@ -16,8 +16,6 @@
 
 package com.criteo.deepdiff.diff
 
-import java.util
-
 import com.criteo.deepdiff.config.DeepDiffConfig
 import com.criteo.deepdiff.plan.DiffPlanBuilder
 import com.criteo.deepdiff.{DatasetDiffs, KeyExample}
@@ -26,6 +24,8 @@ import org.apache.spark.sql.types._
 import org.apache.spark.unsafe.types.UTF8String
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
+
+import java.util
 
 trait DFDatasetDiffsBuilderSpec extends AnyFlatSpec with Matchers {
   import com.criteo.deepdiff.test_utils.SparkUtils.asSparkRow

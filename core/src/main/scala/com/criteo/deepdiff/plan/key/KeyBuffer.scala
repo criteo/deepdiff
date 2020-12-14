@@ -16,9 +16,6 @@
 
 package com.criteo.deepdiff.plan.key
 
-import java.io.ObjectInputStream
-import java.nio.{BufferOverflowException, ByteBuffer}
-
 import com.criteo.deepdiff.plan.KeyDiffField
 import com.criteo.deepdiff.plan.field.FieldPath
 import com.criteo.deepdiff.type_support.example.DateTimeExampleUtils
@@ -27,6 +24,8 @@ import org.apache.spark.sql.catalyst.expressions.SpecializedGetters
 import org.apache.spark.sql.types._
 import org.apache.spark.unsafe.types.UTF8String
 
+import java.io.ObjectInputStream
+import java.nio.{BufferOverflowException, ByteBuffer}
 import scala.annotation.tailrec
 import scala.language.higherKinds
 

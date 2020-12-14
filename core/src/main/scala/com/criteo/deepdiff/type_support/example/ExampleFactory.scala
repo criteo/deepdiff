@@ -16,8 +16,6 @@
 
 package com.criteo.deepdiff.type_support.example
 
-import java.nio.ByteBuffer
-
 import com.criteo.deepdiff.KeyExample
 import com.criteo.deepdiff.diff.{K, Kx}
 import com.criteo.deepdiff.plan.key.KeyMaker
@@ -28,6 +26,7 @@ import org.apache.spark.sql.catalyst.expressions.SpecializedGetters
 import org.apache.spark.sql.types._
 import org.apache.spark.unsafe.types.UTF8String
 
+import java.nio.ByteBuffer
 import scala.language.higherKinds
 
 private[deepdiff] abstract class ExampleFactory extends Serializable {

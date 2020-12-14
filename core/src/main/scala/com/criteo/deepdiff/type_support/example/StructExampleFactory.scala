@@ -16,8 +16,6 @@
 
 package com.criteo.deepdiff.type_support.example
 
-import java.nio.ByteBuffer
-
 import com.criteo.deepdiff.KeyExample
 import com.criteo.deepdiff.diff.{K, Kx, Rx}
 import com.criteo.deepdiff.plan.key.KeyMaker
@@ -25,6 +23,8 @@ import com.criteo.deepdiff.raw_part.{RawDiffExampleBuilder, RawToFriendlyDiffExa
 import com.criteo.deepdiff.utils.LeftRight
 import org.apache.spark.sql.catalyst.InternalRow
 import org.apache.spark.sql.catalyst.expressions.SpecializedGetters
+
+import java.nio.ByteBuffer
 
 private[deepdiff] object StructExampleFactory {
   object record {

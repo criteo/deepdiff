@@ -16,9 +16,6 @@
 
 package com.criteo.deepdiff.plan.key
 
-import java.nio.ByteBuffer
-import java.util
-
 import com.criteo.deepdiff.diff.{K, Kx}
 import com.criteo.deepdiff.plan.KeyDiffField
 import com.criteo.deepdiff.utils._
@@ -28,6 +25,8 @@ import org.apache.spark.sql.types.StructType
 import org.apache.spark.unsafe.types.UTF8String
 import yonik.util.MurmurHash3
 
+import java.nio.ByteBuffer
+import java.util
 import scala.language.higherKinds
 
 /** Base interface for objects making keys.

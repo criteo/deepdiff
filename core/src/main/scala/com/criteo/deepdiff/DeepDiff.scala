@@ -29,8 +29,9 @@ import org.apache.spark.sql.{DataFrame, Encoder, Encoders, SparkSession}
   *
   * Prefer using [[FastDeepDiff]] for best performance, but this one has the most flexibility.
   */
-abstract class DeepDiff(val config: DeepDiffConfig)(implicit val spark: SparkSession) {
+abstract class DeepDiff(implicit val spark: SparkSession) {
 
+  protected val config: DeepDiffConfig
   protected def leftAndRightDataFrames(): (DataFrame, DataFrame)
 
   final def run(): DatasetDiffs[KeyExample, Map[String, Any]] = {
@@ -65,8 +66,8 @@ abstract class DeepDiff(val config: DeepDiffConfig)(implicit val spark: SparkSes
   private def coGroupNumPartitions(left: DataFrame, right: DataFrame): Int = {
     Math.max(
       spark.conf
-      // Unless specified explicitly, we're using the same number of partition as left and right combined
-      // as it's pretty good heuristic to even handle somewhat skewed keys.
+        // Unless specified explicitly, we're using the same number of partition as left and right combined
+        // as it's pretty good heuristic to even handle somewhat skewed keys.
         .get(SQLConf.SHUFFLE_PARTITIONS.key, (left.rdd.getNumPartitions + right.rdd.getNumPartitions).toString)
         .toInt,
       20

@@ -16,14 +16,14 @@
 
 package com.criteo.deepdiff.test_cases
 
-import java.nio.charset.StandardCharsets
-import java.nio.file.Files
-import java.util.UUID
-
 import com.criteo.deepdiff.KeyExample
 import com.criteo.deepdiff.test_utils.DeepDiffSpec.DeepDiffTestCase
 import com.criteo.deepdiff.test_utils.{DatasetDiffsBuilder, DeepDiffSpec}
 import org.apache.spark.sql.{DataFrame, SparkSession}
+
+import java.nio.charset.StandardCharsets
+import java.nio.file.Files
+import java.util.UUID
 
 object InputSpec {
   final case class RecordA(key: String, value: java.lang.Integer = null)

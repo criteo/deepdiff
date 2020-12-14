@@ -16,9 +16,6 @@
 
 package com.criteo.deepdiff.diff
 
-import java.util
-import java.util.function.{BiConsumer, BiFunction}
-
 import com.criteo.deepdiff.config.DeepDiffConfig
 import com.criteo.deepdiff.diff.accumulators._
 import com.criteo.deepdiff.plan._
@@ -29,6 +26,9 @@ import com.criteo.deepdiff.type_support.unsafe.UnsafeComparator
 import com.criteo.deepdiff.utils.{Common, HasLeft, HasRight}
 import org.apache.spark.sql.catalyst.util.ArrayData
 import org.apache.spark.unsafe.types.UTF8String
+
+import java.util
+import java.util.function.{BiConsumer, BiFunction}
 
 object DatasetDiffAccumulatorsBuilder {
   private def nestedLeftOnlyFields(

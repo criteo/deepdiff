@@ -141,15 +141,15 @@ final class FastDeepDiffSpec extends AnyWordSpec with Matchers with LocalSparkSp
                                 right: StructType,
                                 actualLeft: StructType,
                                 actualRight: StructType): Unit = {
-    val deepDiff = new FastDeepDiff(DeepDiffConfig(keys = Set("key")))(getSparkSession) {
-      override protected def leftSchema: StructType = left
+    val deepDiff = new FastDeepDiff()(getSparkSession) {
+      val config: DeepDiffConfig = DeepDiffConfig(keys = Set("key"))
 
-      override protected def rightSchema: StructType = right
+      def leftSchema: StructType = left
+      def rightSchema: StructType = right
 
-      override protected def leftDataFrame(schema: StructType): DataFrame =
+      def leftDataFrame(schema: StructType): DataFrame =
         spark.createDataFrame(spark.sparkContext.emptyRDD[Row], actualLeft)
-
-      override protected def rightDataFrame(schema: StructType): DataFrame =
+      def rightDataFrame(schema: StructType): DataFrame =
         spark.createDataFrame(spark.sparkContext.emptyRDD[Row], actualRight)
 
       // loading DataFrames with provided schemas shouldn't fail.

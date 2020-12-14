@@ -16,14 +16,14 @@
 
 package com.criteo.deepdiff.plan.key
 
-import java.nio.ByteBuffer
-import java.util
-
 import com.criteo.deepdiff.FieldsKeyExample
 import com.criteo.deepdiff.plan.KeyDiffField
 import com.criteo.deepdiff.utils.Common
 import org.apache.spark.sql.catalyst.expressions.SpecializedGetters
 import org.apache.spark.sql.types.StructType
+
+import java.nio.ByteBuffer
+import java.util
 
 final class GroupKeyMakerSpec extends SchemaKeyMakerSpec {
   final class GroupKeyMakerWrapper(val groupKey: GroupKeyMaker) extends SchemaKeyMaker {

@@ -16,7 +16,6 @@
 
 package com.criteo.deepdiff
 
-import com.criteo.deepdiff.config.DeepDiffConfig
 import org.apache.spark.sql.types.StructType
 import org.apache.spark.sql.{DataFrame, SparkSession}
 
@@ -26,7 +25,7 @@ import org.apache.spark.sql.{DataFrame, SparkSession}
   * schemas are as close as possible. Whenever those are identical, DeepDiff will compare the binary representation
   * of rows directly which can speed up comparison noticeably.
   */
-abstract class FastDeepDiff(config: DeepDiffConfig)(implicit spark: SparkSession) extends DeepDiff(config) {
+abstract class FastDeepDiff(implicit spark: SparkSession) extends DeepDiff {
 
   protected def leftSchema: StructType
   protected def rightSchema: StructType

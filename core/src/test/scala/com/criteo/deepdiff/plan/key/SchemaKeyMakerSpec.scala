@@ -16,10 +16,6 @@
 
 package com.criteo.deepdiff.plan.key
 
-import java.nio.ByteBuffer
-import java.util
-import java.util.TimeZone
-
 import com.criteo.deepdiff.FieldsKeyExample
 import com.criteo.deepdiff.plan.field.FieldPath
 import com.criteo.deepdiff.plan.{FieldUtils, KeyDiffField}
@@ -31,6 +27,9 @@ import org.scalatest.AppendedClues
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
+import java.nio.ByteBuffer
+import java.util
+import java.util.TimeZone
 import scala.util.Random
 
 trait SchemaKeyMakerSpec extends AnyFlatSpec with Matchers with AppendedClues {
@@ -64,7 +63,8 @@ trait SchemaKeyMakerSpec extends AnyFlatSpec with Matchers with AppendedClues {
       buildKeyMaker(Common.twin(schema), keys.map(commonKey))
 
     it should "throw errors on invalid keys" in {
-      for (key <- Seq(
+      for (
+        key <- Seq(
           "unknown", // field does not exist
           "int.field", // int is not a struct
           "struct.s99", // s99 does not exist

@@ -16,13 +16,13 @@
 
 package com.criteo.deepdiff.plan.key
 
-import java.nio.ByteBuffer
-
 import com.criteo.deepdiff.plan.KeyDiffField
 import com.criteo.deepdiff.utils.Common
 import com.criteo.deepdiff.{CompositeKeyExample, FieldsKeyExample}
 import org.apache.spark.sql.catalyst.expressions.SpecializedGetters
 import org.apache.spark.sql.types.StructType
+
+import java.nio.ByteBuffer
 
 class NestedKeyMakerSpec extends SchemaKeyMakerSpec {
   final class NestedKeyMakerWrapper(val nestedKey: NestedStructKeyMaker[Common]) extends SchemaKeyMaker {

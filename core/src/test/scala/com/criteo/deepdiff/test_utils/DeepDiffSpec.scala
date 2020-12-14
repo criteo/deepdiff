@@ -16,9 +16,6 @@
 
 package com.criteo.deepdiff.test_utils
 
-import java.nio.file.{Files, Path}
-import java.util.UUID
-
 import com.criteo.deepdiff._
 import com.criteo.deepdiff.config.DeepDiffConfig
 import com.typesafe.config.ConfigFactory
@@ -28,6 +25,8 @@ import org.scalatest.CancelAfterFailure
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.wordspec.AnyWordSpec
 
+import java.nio.file.{Files, Path}
+import java.util.UUID
 import scala.collection.JavaConverters._
 import scala.reflect.runtime.universe._
 
@@ -201,7 +200,8 @@ abstract class DeepDiffSpec extends AnyWordSpec with Matchers with LocalSparkSpe
                           inputs: (DataFrame, DataFrame),
                           expected: DatasetDiffsBuilder[KeyExample, Map[String, Any]]): Unit = {
     val rawConfig = ConfigFactory.parseString(config)
-    val deepDiff = new DeepDiff(DeepDiffConfig.fromRawConfig(rawConfig)) {
+    val deepDiff = new DeepDiff {
+      val config: DeepDiffConfig = DeepDiffConfig.fromRawConfig(rawConfig)
       override def leftAndRightDataFrames(): (DataFrame, DataFrame) = inputs
     }
 
@@ -217,7 +217,8 @@ abstract class DeepDiffSpec extends AnyWordSpec with Matchers with LocalSparkSpe
     withTmpDir(tmpDir => {
       val rawConfig = ConfigFactory.parseString(config)
       val (left, right) = inputs
-      val deepDiff = new FastDeepDiff(DeepDiffConfig.fromRawConfig(rawConfig)) {
+      val deepDiff = new FastDeepDiff {
+        val config: DeepDiffConfig = DeepDiffConfig.fromRawConfig(rawConfig)
         def leftSchema: StructType = left.schema
         def rightSchema: StructType = right.schema
         def leftDataFrame(schema: StructType): DataFrame = forceSchema(left, schema)
